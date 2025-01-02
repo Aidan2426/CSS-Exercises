@@ -1,0 +1,26 @@
+.one{
+    padding: 20px;
+    margin: 32px;
+    background-color: pink;
+    border: 3px solid blue;
+    display: inline-block;
+    width: 300px;
+}
+
+.two{
+    padding: 0px;
+    margin-bottom: 48px;
+    background-color: lightblue;
+    border: 3px solid darkred;
+    width: 300px;
+    display: inline-block;
+}
+
+#three{
+    padding: 20px;
+    margin: 32px;
+    background-color: lightsalmon;
+    border: 3px solid darkred;
+    width: 200px;
+    margin-left: auto;
+}

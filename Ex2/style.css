@@ -1,0 +1,26 @@
+.number1{
+    font-size: 10px;
+}
+#number2{
+    color: rgb(0,100,200);
+    font-size: 32px;
+    font-family: Verdana;
+}
+.number3{
+    background-color: rgb(255, 182, 193);
+    font-weight: 700;
+    font-family: "Timew New Roman";
+}
+#number4{
+    background-color: rgb(50, 255, 100);
+    font-size: 25px;
+    font-weight: 300;
+}
+.number5{
+    font-family:'Times New Roman', Times, serif;
+}
+
+.number1, 
+.number5{
+    background-color: #FFB5C0;
+}

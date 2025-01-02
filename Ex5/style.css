@@ -1,0 +1,13 @@
+.container .text{
+    color: red;
+    background-color: yellow;
+    text-align: center;
+}
+
+.text{
+    font-size: 30px;
+}
+
+.container{
+    font-weight: bold;
+}
