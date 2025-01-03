@@ -1,0 +1,35 @@
+.number1{
+    font-size:10px;
+    padding: 10px; /* Padding is the space betweens border and content */
+    margin: 20px; /* Margin is teh space between divs */
+    border: 3px solid blue; /*Border is the space between padding and margin */
+}
+#number2{
+    font-size:20px;
+    color:blueviolet;
+    border:20px;
+    border-width:20px;
+}
+#number4{
+    font-weight: 300;
+    margin: 20px;
+}
+
+.number1,
+.number5{
+    font-family:'Times New Roman', Times, serif;
+    background-color:lightsalmon;
+}
+
+.number7{
+    padding: 5px;
+    margin:10px;
+    border: 3px dotted red;
+    background-color:pink;
+}
+
+.number8{
+    padding: 7px;
+    margin: 0px;
+    border: 5px solid purple;
+}
