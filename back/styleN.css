@@ -257,3 +257,18 @@
     border: 3px solid green;
     margin: 5px;
 }
+
+.flexbox14{
+    display: flex;
+    height: 100px;
+    background: plum;
+    border: 4px solid red;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: center;
+    gap: 8px;
+}
+
+.twentyone{
+    border: 3px solid orange;
+}
