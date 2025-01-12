@@ -134,9 +134,11 @@ switch(g){
         console.log("i don't know");
 }
 
-let aidan = "Aidan"
+let aidan = "Aidan";
 console.log(aidan + " is the coolest");
 
+let streak = "streak";
+console.log("im keeping my" + streak + "alive ");
 
         
 
