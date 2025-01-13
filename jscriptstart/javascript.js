@@ -140,6 +140,9 @@ console.log(aidan + " is the coolest");
 let streak = "streak";
 console.log("im keeping my" + streak + "alive ");
 
+const push = "push";
+console.log("This is a " + push + "onto github");
+
         
 
 
