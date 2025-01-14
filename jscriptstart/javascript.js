@@ -143,6 +143,11 @@ console.log("im keeping my" + streak + "alive ");
 const push = "push";
 console.log("This is a " + push + "onto github");
 
+const alive = "streak alive";
+console.log("I'm just doig this to keep my" + alive);
+console.log("Don't worry I'm still working");
+
+
         
 
 
