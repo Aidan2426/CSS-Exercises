@@ -147,6 +147,30 @@ const alive = "streak alive";
 console.log("I'm just doig this to keep my" + alive);
 console.log("Don't worry I'm still working");
 
+function favoriteAnimal(animal){
+    return animal + " is my favorite animal"
+}
+
+console.log(favoriteAnimal('Goat'));
+
+function mathDone(num1, num2){//parameters on this line
+    let num3 = num1+num2;
+    return num3;
+}
+//functions are a parts of objects called methods
+
+num4 = mathDone(1,2);//arguments on this line
+
+console.log(num4)
+
+let num = Math.random()
+console.log(num);
+
+const myText = "The weather is cold";
+console.log(myText);
+const newString = myText.replace("cold", "warm");
+console.log(newString);
+
 
         
 
