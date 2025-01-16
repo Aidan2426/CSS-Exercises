@@ -172,7 +172,22 @@ const newString = myText.replace("cold", "warm");
 console.log(newString);
 
 
+let sayhi = function(){//this is just another way or writing this
+    console.log("Hello");
+}
+sayhi();
+
+function add7(num){
+    return num + 7;
+}
+
+function mul(num){
+    return num *2 ;
+}
         
+function last(word){
+    return word.slice(-1);
+}
 
-
-
+aidan = last("aidan");
+console.log(aidan);
