@@ -191,3 +191,21 @@ function last(word){
 
 aidan = last("aidan");
 console.log(aidan);
+
+function first(word){
+    let f = word.charAt(0);
+    let n = f.toUpperCase();
+    let d = n + word.slice(1);
+    return d;
+}
+
+a = first("aidan");
+console.log(a);
+
+if (3%3 == 0){//mod show the number of remainders
+    console.log("alright");
+}
+
+for(let i = 1; i<=5; i++){
+    console.log(i);
+}
