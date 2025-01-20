@@ -70,7 +70,7 @@ if(compChoice == 3 && hum == 2)
     console.log("lose")
 }
     
-
+console.log("I'm working on arrays today");
 //rock == 1
 //paper == 2
 //scissors == 3
