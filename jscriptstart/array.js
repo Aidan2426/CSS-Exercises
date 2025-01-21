@@ -26,3 +26,8 @@ console.log(second);
 people.pop();
 people.shift()
 people.unshift();
+
+let vowel = ["A", "E", "I", "O", "U"];
+for (let letter of vowel){
+    console.log(letter);
+}
