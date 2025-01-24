@@ -209,3 +209,57 @@ if (3%3 == 0){//mod show the number of remainders
 for(let i = 1; i<=5; i++){
     console.log(i);
 }
+let ai = 5
+while(ai>1){
+    console.log("Ai is greater than 1")
+    ai--;
+}
+
+do{
+    console.log("hello");
+}while(5>6);
+
+for (let i = 0; i<3; i++){
+    console.log(i);
+}
+
+function repeatString(word, num){
+    for(i = 0; i<num; i++)
+    {
+        console.log(word)
+    }
+}
+
+repeatString("Aidan", 3)
+
+//function reverse(word){
+  //  let nWord;
+    //let len = word.length;
+    //console.log(len)
+    //let last;
+    //for (i = 1; 1<=len; i++){
+      //  last = word[len-i]
+        //console.log(last)
+        //nWord = nWord + last
+   // }
+    //console.log(nWord)
+//}
+//console.log("new")
+//reverse("Aidan")
+
+let ann = [1,2,3,4]
+delete ann[2]
+
+function sumAll(num1, num2)
+{
+    let total=0;
+    while(num1<=num2)
+    {
+        total = total + num1;
+        num1 ++;
+    }
+    console.log(total)
+}
+
+
+sumAll(2,5) //2+3+4+5, 14
