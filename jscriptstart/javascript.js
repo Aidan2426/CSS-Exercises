@@ -263,3 +263,5 @@ function sumAll(num1, num2)
 
 
 sumAll(2,5) //2+3+4+5, 14
+
+
