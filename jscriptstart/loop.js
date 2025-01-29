@@ -26,3 +26,4 @@ const contacts = [
     }
   });
   
+  //make it stay
