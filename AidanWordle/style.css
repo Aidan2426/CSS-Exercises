@@ -37,7 +37,7 @@ body{
     flex-direction: row;
     gap: 25px;
     height: 100px;
-    justify-content: center; /*Centers horizontally */
+    justify-content: center; /*Centers horizontally ,1*/
     align-items: center; /*Center vertically */
     width: 100px;
     margin: 5px;
@@ -131,4 +131,13 @@ body{
     font-size: 50px;
     border-radius: 25px;
     font-family: "Lucida Console";
+}
+
+
+
+#display{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
 }

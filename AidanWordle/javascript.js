@@ -6,10 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let randomChars = randomWord.split("");
 
     let rowCount = 0;
+    let text = ""
+    //literaly no clue whats happening
 
     const textBox = document.querySelector("#wordInput");
     const addButton = document.querySelector("#addButton");
-    const temp = document.querySelector("#temp");
+    const display = document.querySelector("#display")
 
     const rows = [
         document.querySelectorAll("#r1b1, #r1b2, #r1b3, #r1b4, #r1b5"),
@@ -26,7 +28,22 @@ document.addEventListener("DOMContentLoaded", () => {
         if(e.key == "Enter"){
             pressed()
         }
+
+        if(e.key.length == 1){
+            text+=e.key;
+        }else if (e.key == "Backspace"){
+            text = text.slice(0,-1)
+        }
+        display.innerText = text || "Start typing . . . ";
     });
+
+    display.addEventListener("input", () =>{
+        text = textBox.value;
+        display.innerText = text || "Start typing . . . ";
+
+    })
+
+
 
     function pressed(){
         let guessWord = textBox.value; 
@@ -38,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let letters = guessWord.split("")
             guess(guessWord, letters);
             textBox.value = "";
+            text = "";
         }  
     }
 
