@@ -1,17 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    const words = ["AIDAN", "PHOTO", "CLEAT", "MATHS"];
+    const words = [
+        "AIDAN", "PHOTO", "CLEAT", "MATHS", "ROBOT", "CODES", "LABOR", "STEMI",
+        "ALGOR", "GRAPH", "TECHS", "CIRCU", "WIREL", "DEVIC", "HACKS", "ENGINE",
+        "STEMS", "LOGIC", "COMPS", "MATHS", "TUTOR", "SOFTW", "BITSY", "FRAME",
+        "ARCHI", "SCALE", "ALPHA", "BRAIN", "FIBER", "BYTEB", "DIGIT", "MODEL",
+        "STUDY", "NODES", "TECHY", "CLEAR", "FUTUR", "MATRIX", "DATAK", "QUERY",
+        "LABED", "REACT", "RIGOR", "VECTO", "PROOF", "TRACK", "SIMUL", "TRIAL",
+        "INNOV", "BLOCS", "RISER", "START", "VIRUS", "LOGIC", "HAWKS"
+      ];
+      
     const randomIndex = Math.floor(Math.random() * words.length);
     let randomWord = words[randomIndex];
     let randomChars = randomWord.split("");
 
     let rowCount = 0;
-    let text = ""
-    //literaly no clue whats happening
+    let guessWord = ""
 
     const textBox = document.querySelector("#wordInput");
     const addButton = document.querySelector("#addButton");
-    const display = document.querySelector("#display")
 
     const rows = [
         document.querySelectorAll("#r1b1, #r1b2, #r1b3, #r1b4, #r1b5"),
@@ -24,43 +30,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     addButton.addEventListener("click", pressed);
     
-    textBox.addEventListener("keydown", (e) => {
+    document.body.addEventListener("keydown", function(e){
+        if(e.key.length == 1 && guessWord.length < 5){ //this is for single character 
+            guessWord +=e.key.toUpperCase() 
+            textBox.value = guessWord;
+        }else if(e.key == "Backspace"){
+            guessWord = guessWord.slice(0,-1);
+            textBox.value = guessWord;
+        }
         if(e.key == "Enter"){
             pressed()
         }
-
-        if(e.key.length == 1){
-            text+=e.key;
-        }else if (e.key == "Backspace"){
-            text = text.slice(0,-1)
-        }
-        display.innerText = text || "Start typing . . . ";
     });
 
-    display.addEventListener("input", () =>{
-        text = textBox.value;
-        display.innerText = text || "Start typing . . . ";
-
-    })
-
-
-
     function pressed(){
-        let guessWord = textBox.value; 
+        guessWord = textBox.value; 
         guessWord = guessWord.toUpperCase();
         if(guessWord.length > 5 || guessWord.length<5){
             alert("You must enter a 5 letter word");
+            return;
         }
         else{
             let letters = guessWord.split("")
             guess(guessWord, letters);
             textBox.value = "";
-            text = "";
+            guessWord = "";
+            if(rowCount>=rows.length){
+                alert("game over");
+            }
         }  
     }
 
     function guess(guessWord, letters){
-
         let currentRow = rows[rowCount]
 
             for(let i = 0; i<letters.length; i++)
@@ -80,5 +81,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }  
             rowCount++;
-        }        
+        }      
 });

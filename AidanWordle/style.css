@@ -5,6 +5,8 @@ body{
 #allBoxes{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items:center;
 }
 #row1{
     display: flex;
@@ -28,7 +30,7 @@ body{
 }
 #row6{
     display: flex;
-    flex-direction: flex;
+    flex-direction: row;
 }
 
 
@@ -133,11 +135,3 @@ body{
     font-family: "Lucida Console";
 }
 
-
-
-#display{
-    width: 100px;
-    height: 100px;
-    background-color: black;
-    color: white;
-}
