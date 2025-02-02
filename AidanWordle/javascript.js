@@ -1,20 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     const words = [
         "AIDAN", "PHOTO", "CLEAT", "MATHS", "ROBOT", "CODES", "LABOR", "STEMI",
-        "ALGOR", "GRAPH", "TECHS", "CIRCU", "WIREL", "DEVIC", "HACKS", "ENGINE",
-        "STEMS", "LOGIC", "COMPS", "MATHS", "TUTOR", "SOFTW", "BITSY", "FRAME",
-        "ARCHI", "SCALE", "ALPHA", "BRAIN", "FIBER", "BYTEB", "DIGIT", "MODEL",
-        "STUDY", "NODES", "TECHY", "CLEAR", "FUTUR", "MATRIX", "DATAK", "QUERY",
-        "LABED", "REACT", "RIGOR", "VECTO", "PROOF", "TRACK", "SIMUL", "TRIAL",
-        "INNOV", "BLOCS", "RISER", "START", "VIRUS", "LOGIC", "HAWKS"
-      ];
+        "ALGOR", "GRAPH", "TECHS", "CIRCU", "WIREL", "DEVIC", "HACKS", "ENGIN",
+        "STEMS", "LOGIC", "COMPS", "TUTOR", "SOFTW", "BITSY", "FRAME", "ARCHI",
+        "SCALE", "ALPHA", "BRAIN", "FIBER", "BYTEB", "DIGIT", "MODEL", "STUDY",
+        "NODES", "TECHY", "TREES", "METAL", "TOWER", "PEARL", "PLUMB",
+        "TIMER", "SHOCK", "FIELD", "PAUSE", "ORDER", "BRICK", "BRUSH", "CABLE"
+    ];
       
     const randomIndex = Math.floor(Math.random() * words.length);
     let randomWord = words[randomIndex];
     let randomChars = randomWord.split("");
 
     let rowCount = 0;
-    let guessWord = ""
+    let guessWord = "";
 
     const textBox = document.querySelector("#wordInput");
     const addButton = document.querySelector("#addButton");
@@ -28,26 +27,55 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll("#r6b1, #r6b2, #r6b3, #r6b4, #r6b5")
     ];
 
-    addButton.addEventListener("click", pressed);
-    
+    //const characters = document.querySelectorAll("#a", "#b", "#c", "#d", "#e", "#f", "#g", "#h", "#i", "#j", "#k", "#l", "#m" , "#n" , "#o", "#p", "#q", "#r", "#s", "#t", "#u", "#v", "#w", "#x", "#y", "#z")
+    const characters = document.querySelectorAll(".keyboard");
+
+    characters.forEach(key => {
+        if(key.textContent.trim().toUpperCase() == "A"){
+            key.style.background = "green";
+        }
+    })
+
     document.body.addEventListener("keydown", function(e){
+
+        if(rowCount >= rows.length)return;
+
+        let currentRow = rows[rowCount];
+
         if(e.key.length == 1 && guessWord.length < 5){ //this is for single character 
             guessWord +=e.key.toUpperCase() 
             textBox.value = guessWord;
-        }else if(e.key == "Backspace"){
-            guessWord = guessWord.slice(0,-1);
-            textBox.value = guessWord;
+            currentRow[guessWord.length-1].textContent = e.key.toUpperCase();
         }
+
+        else if(e.key == "Backspace"){
+            currentRow[guessWord.length - 1].textContent = "";
+            guessWord = guessWord.slice(0,-1);
+            textBox.value = guessWord;  
+        }
+
         if(e.key == "Enter"){
             pressed()
+
+            characters.forEach(key => {
+                key.style.background = "green";
+            })
+
+
         }
+    });
+
+    addButton.addEventListener("click", () => {
+        pressed();
     });
 
     function pressed(){
         guessWord = textBox.value; 
         guessWord = guessWord.toUpperCase();
+
         if(guessWord.length > 5 || guessWord.length<5){
             alert("You must enter a 5 letter word");
+            shakeBlocks(rowCount+1);
             return;
         }
         else{
@@ -57,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
             guessWord = "";
             if(rowCount>=rows.length){
                 alert("game over");
+                alert("correct word was" + randomWord)
             }
         }  
     }
@@ -81,5 +110,54 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }  
             rowCount++;
-        }      
+        }   
+        
+        const row1Blocks = document.querySelectorAll("#row1 div");
+        const row2Blocks = document.querySelectorAll("#row2 div");
+        const row3Blocks = document.querySelectorAll("#row3 div");
+        const row4Blocks = document.querySelectorAll("#row4 div");
+        const row5Blocks = document.querySelectorAll("#row5 div");
+        const row6Blocks = document.querySelectorAll("#row6 div");
+
+        function shakeBlocks(row){
+      
+        switch(row){
+            case 1:
+                row1Blocks.forEach(block => block.classList.add("shake"));
+                setTimeout(() => {
+                row1Blocks.forEach(block => block.classList.remove("shake"));
+                }, 500);
+                break;
+            case 2:
+                row2Blocks.forEach(block => block.classList.add("shake"));
+                setTimeout(() => {
+                row2Blocks.forEach(block => block.classList.remove("shake"));
+                }, 500);
+                break;
+            case 3:
+                row3Blocks.forEach(block => block.classList.add("shake"));
+                setTimeout(() => {
+                row3Blocks.forEach(block => block.classList.remove("shake"));
+                }, 500);
+                break;
+            case 4:
+                row4Blocks.forEach(block => block.classList.add("shake"));
+                setTimeout(() => {
+                row4Blocks.forEach(block => block.classList.remove("shake"));
+                }, 500);
+                break;
+            case 5:
+                row5Blocks.forEach(block => block.classList.add("shake"));
+                setTimeout(() => {
+                row5Blocks.forEach(block => block.classList.remove("shake"));
+                }, 500);
+                break;
+            case 6:
+                row6Blocks.forEach(block => block.classList.add("shake"));
+                setTimeout(() => {
+                row6Blocks.forEach(block => block.classList.remove("shake"));
+                }, 500);
+                break;
+            }
+        }
 });

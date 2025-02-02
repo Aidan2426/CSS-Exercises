@@ -1,5 +1,5 @@
 body{
-    background-color: #3262A8
+    background-color: #D3D3D3
 }
 
 #allBoxes{
@@ -7,131 +7,68 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    
 }
-#row1{
+
+.box {
     display: flex;
-    flex-direction: row;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    padding: 5px;
+    background-color: #D3D3D3;
+    color: black;
+    font-size: 50px;
+    font-family: "Lucida Console", monospace;
+    border: 5px solid #444444;
 }
-#row2{
-    display: flex;
-    flex-direction: row;
-}
-#row3{
-    display: flex;
-    flex-direction: row;
-}
-#row4{
-    display: flex;
-    flex-direction: row;
-}
-#row5{
-    display: flex;
-    flex-direction: row;
-}
-#row6{
+
+.row{
     display: flex;
     flex-direction: row;
 }
 
 
-#r1b1,#r1b2,#r1b3,#r1b4,#r1b5{
+
+#keyboardAll{
+    align-items: center;
     display: flex;
-    flex-direction: row;
-    gap: 25px;
-    height: 100px;
-    justify-content: center; /*Centers horizontally ,1*/
-    align-items: center; /*Center vertically */
-    width: 100px;
-    margin: 5px;
-    padding: 5px;
-    background-color: #757d8a;
-    color: black;
-    font-size: 50px;
+    flex-direction: column;
     border-radius: 25px;
-    font-family: "Lucida Console";
-}
-#r2b1,#r2b2,#r2b3,#r2b4,#r2b5{
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    height: 100px;
-    justify-content: center; /*Centers horizontally */
-    align-items: center; /*Center vertically */
-    width: 100px;
-    margin: 5px;
-    padding: 5px;
-    background-color: #757d8a;
-    color: black;
-    font-size: 50px;
-    border-radius: 25px;
-    font-family: "Lucida Console";
 }
 
-#r3b1,#r3b2,#r3b3,#r3b4,#r3b5{
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    height: 100px;
-    justify-content: center; /*Centers horizontally */
-    align-items: center; /*Center vertically */
-    width: 100px;
-    margin: 5px;
-    padding: 5px;
-    background-color: #757d8a;
-    color: black;
-    font-size: 50px;
-    border-radius: 25px;
-    font-family: "Lucida Console";
+.keyboard{
+    font-size: 1rem;
+    font-weight: 700;
+    padding: .5rem;
+    margin: 0 2px;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
-#r4b1,#r4b2,#r4b3,#r4b4,#r4b5{
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    height: 100px;
-    justify-content: center; /*Centers horizontally */
-    align-items: center; /*Center vertically */
-    width: 100px;
-    margin: 5px;
-    padding: 5px;
-    background-color: #757d8a;
-    color: black;
-    font-size: 50px;
-    border-radius: 25px;
-    font-family: "Lucida Console";
+#wordInput{
+    display: none;
 }
 
-#r5b1,#r5b2,#r5b3,#r5b4,#r5b5{
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
+#shakeDiv{
     height: 100px;
-    justify-content: center; /*Centers horizontally */
-    align-items: center; /*Center vertically */
     width: 100px;
-    margin: 5px;
-    padding: 5px;
-    background-color: #757d8a;
-    color: black;
-    font-size: 50px;
-    border-radius: 25px;
-    font-family: "Lucida Console";
+    background: black;
+    color:white;
 }
 
-#r6b1,#r6b2,#r6b3,#r6b4,#r6b5{
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    height: 100px;
-    justify-content: center; /*Centers horizontally */
-    align-items: center; /*Center vertically */
-    width: 100px;
-    margin: 5px;
-    padding: 5px;
-    background-color: #757d8a;
-    color: black;
-    font-size: 50px;
-    border-radius: 25px;
-    font-family: "Lucida Console";
+@keyframes shake{
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake{
+    animation: shake 0.5s ease-in-out;
 }
 
