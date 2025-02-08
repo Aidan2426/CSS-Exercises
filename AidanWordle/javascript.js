@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
     const randomIndex = Math.floor(Math.random() * words.length);
     let randomWord = words[randomIndex];
+    console.log(randomWord)
     let randomChars = randomWord.split("");
 
     let rowCount = 0;
@@ -27,14 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll("#r6b1, #r6b2, #r6b3, #r6b4, #r6b5")
     ];
 
-    //const characters = document.querySelectorAll("#a", "#b", "#c", "#d", "#e", "#f", "#g", "#h", "#i", "#j", "#k", "#l", "#m" , "#n" , "#o", "#p", "#q", "#r", "#s", "#t", "#u", "#v", "#w", "#x", "#y", "#z")
-    const characters = document.querySelectorAll(".keyboard");
+    const characters = document.querySelectorAll("#a, #b, #c, #d, #e, #f, #g, #h, #i, #j, #k, #l, #m, #n, #o, #p, #q, #r, #s, #t, #u, #v, #w, #x, #y, #z");
 
-    characters.forEach(key => {
-        if(key.textContent.trim().toUpperCase() == "A"){
-            key.style.background = "green";
-        }
-    })
+
 
     document.body.addEventListener("keydown", function(e){
 
@@ -56,12 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(e.key == "Enter"){
             pressed()
-
-            characters.forEach(key => {
-                key.style.background = "green";
-            })
-
-
         }
     });
 
@@ -90,6 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }  
     }
 
+    function updateKeyboardColor(letter, color){
+        let keyElement = document.getElementById(letter.toLowerCase());
+        if (keyElement){
+            keyElement.style.background = color;
+        }
+    }
+
     function guess(guessWord, letters){
         let currentRow = rows[rowCount]
 
@@ -98,15 +95,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentRow[i].textContent = letters[i]
 
                 if(letters[i] == randomChars[i]){
+                    updateKeyboardColor(letters[i], 'green');
                     currentRow[i].style.background = "green"
                 }
 
                 else if(randomChars.includes(letters[i])){
                     currentRow[i].style.background  = "yellow";
+                    updateKeyboardColor(letters[i], 'yellow');
                 }
 
                 else{
                     currentRow[i].style.background = "red";
+                    updateKeyboardColor(letters[i], 'red');
                 }
             }  
             rowCount++;
