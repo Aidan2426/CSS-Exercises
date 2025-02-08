@@ -112,6 +112,25 @@ document.addEventListener("DOMContentLoaded", () => {
             rowCount++;
         }   
         
+        const flashButton = document.querySelector("#flashButton");
+        const flasbox = document.querySelector("#flashBox")
+
+        flashButton.addEventListener("click", gameOver);
+
+
+        function gameOver(){
+            console.log("going in");
+            flashBox.style.animation = 'none';  // Reset the animation
+            flashBox.offsetHeight;  // Trigger reflow to apply the reset
+
+            flashBox.style.animation = 'showAndFadeOut 3s forwards';  // Reapply animation
+
+            // Make sure the box is visible before starting the animation
+            flashBox.style.display = 'block';
+            flashBox.style.visibility = 'visible'; // Ensure the box is visible
+
+        }
+
         const row1Blocks = document.querySelectorAll("#row1 div");
         const row2Blocks = document.querySelectorAll("#row2 div");
         const row3Blocks = document.querySelectorAll("#row3 div");

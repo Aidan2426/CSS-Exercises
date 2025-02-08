@@ -39,12 +39,25 @@ body{
 }
 
 .keyboard{
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: .5rem;
+    margin: 0 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 80px;
+    height: 80px;
+}
+
+#addButton{
     font-size: 1rem;
     font-weight: 700;
     padding: .5rem;
     margin: 0 2px;
     cursor: pointer;
     text-transform: uppercase;
+    width: 80px;
+    height: 80px;
 }
 
 #wordInput{
@@ -71,3 +84,30 @@ body{
     animation: shake 0.5s ease-in-out;
 }
 
+@keyframes showAndFadeOut{
+    0%{
+        opacity: 0;
+        visibility: visible;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#flashBox{
+    width: 200px;
+    height: 200px;
+    background-color: #f44336; /* Red box to show "You Lost!" */
+    color: white;
+    text-align: center;
+    line-height: 200px;
+    font-size: 20px;
+    opacity: 0; /* Start with it hidden */
+    visibility: hidden; /* Initially hidden */
+    display: none; /* Hide it by default */
+    animation: showAndFadeOut 3s forwards; /* Animation */
+}
