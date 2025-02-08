@@ -35,7 +35,8 @@ body{
     align-items: center;
     display: flex;
     flex-direction: column;
-    border-radius: 25px;
+    border-radius: 15px;
+    gap: 5px;
 }
 
 .keyboard{
@@ -45,8 +46,10 @@ body{
     margin: 0 2px;
     cursor: pointer;
     text-transform: uppercase;
-    width: 80px;
+    width: 50px;
     height: 80px;
+    border-radius: 8px;
+    border: 0px solid;
 }
 
 #addButton{
@@ -58,6 +61,8 @@ body{
     text-transform: uppercase;
     width: 80px;
     height: 80px;
+    border-radius: 8px;
+    border: 0px solid;
 }
 
 #wordInput{
@@ -100,14 +105,22 @@ body{
 
 #flashBox{
     width: 200px;
-    height: 200px;
-    background-color: #f44336; /* Red box to show "You Lost!" */
+    background-color: black; /* Red box to show "You Lost!" */
     color: white;
     text-align: center;
-    line-height: 200px;
-    font-size: 20px;
+    line-height: 125px;
+    font-size: 50px;
     opacity: 0; /* Start with it hidden */
     visibility: hidden; /* Initially hidden */
     display: none; /* Hide it by default */
-    animation: showAndFadeOut 3s forwards; /* Animation */
+    animation: showAndFadeOut 10s forwards; /* Animation */
+
+    position: fixed; /* Fixed to the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset to truly center */
+    z-index: 1000;
+    border-radius: 15px;
+    font-family: "Lucida Console", monospace;
+
 }

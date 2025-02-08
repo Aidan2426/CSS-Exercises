@@ -74,8 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
             textBox.value = "";
             guessWord = "";
             if(rowCount>=rows.length){
-                alert("game over");
-                alert("correct word was" + randomWord)
+                gameOver()
             }
         }  
     }
@@ -112,22 +111,18 @@ document.addEventListener("DOMContentLoaded", () => {
             rowCount++;
         }   
         
-        const flashButton = document.querySelector("#flashButton");
-        const flasbox = document.querySelector("#flashBox")
-
-        flashButton.addEventListener("click", gameOver);
-
+        const flasbox = document.querySelector("#flashBox");
 
         function gameOver(){
-            console.log("going in");
             flashBox.style.animation = 'none';  // Reset the animation
             flashBox.offsetHeight;  // Trigger reflow to apply the reset
 
-            flashBox.style.animation = 'showAndFadeOut 3s forwards';  // Reapply animation
-
-            // Make sure the box is visible before starting the animation
             flashBox.style.display = 'block';
             flashBox.style.visibility = 'visible'; // Ensure the box is visible
+
+            flashBox.style.animation = 'showAndFadeOut 10s forwards';
+
+            flashBox.textContent = randomWord;
 
         }
 
