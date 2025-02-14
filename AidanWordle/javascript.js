@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const characters = document.querySelectorAll("#a, #b, #c, #d, #e, #f, #g, #h, #i, #j, #k, #l, #m, #n, #o, #p, #q, #r, #s, #t, #u, #v, #w, #x, #y, #z");
 
-
+    //havn't codded in a while need to get back to work
 
     document.body.addEventListener("keydown", function(e){
 
