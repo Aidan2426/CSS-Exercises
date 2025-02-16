@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let randomChars = randomWord.split("");
 
     let rowCount = 0;
-    let guessWord = "";
+    let guessWord = "";//keeping the streak alive, new changes
 
     const textBox = document.querySelector("#wordInput");
     const addButton = document.querySelector("#addButton");
