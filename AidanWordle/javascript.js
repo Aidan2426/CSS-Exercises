@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const characters = document.querySelectorAll("#a, #b, #c, #d, #e, #f, #g, #h, #i, #j, #k, #l, #m, #n, #o, #p, #q, #r, #s, #t, #u, #v, #w, #x, #y, #z");
 
-    //havn't codded in a while need to get back to work
 
     document.body.addEventListener("keydown", function(e){
 
@@ -70,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if(guessWord.length > 5 || guessWord.length<5){
             popUp("letters");
             shakeBlocks(rowCount+1);
-
             return;
         }
         else{
@@ -152,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
+
         const row1Blocks = document.querySelectorAll("#row1 div");
         const row2Blocks = document.querySelectorAll("#row2 div");
         const row3Blocks = document.querySelectorAll("#row3 div");
@@ -159,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const row5Blocks = document.querySelectorAll("#row5 div");
         const row6Blocks = document.querySelectorAll("#row6 div");
 
+        
 
         function flipRows(row){
             switch(row){

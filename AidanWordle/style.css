@@ -150,3 +150,29 @@ body{
     background-color: black;
     /*animation: flipBox .5s ease forwards;*/
 }
+
+
+
+.bounce{
+    animation: bounceBox .5s forwards;
+}
+
+@keyframes bounceBox{
+    0%{
+        transform: scale(1)
+    }
+    50%{
+        transform: scale(1.1)
+    }
+    100%{
+        transform: scale(1)
+    }
+}
+
+#bounceBox{
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    animation: bounceBox .5s ease forwards;
+}
