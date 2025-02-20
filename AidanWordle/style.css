@@ -124,3 +124,29 @@ body{
     font-family: "Lucida Console", monospace;
 
 }
+
+.flip{
+    animation: flipBox .5s forwards;
+}
+
+@keyframes flipBox{
+    0%{
+    transform: rotateX(0);
+    }
+    45%{
+        transform: rotateX(90deg);
+    }
+    55%{
+        transform: rotateX(90deg);
+    }
+    100%{
+    transform: rotateX(0)
+    }
+}
+
+#flipBox{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    /*animation: flipBox .5s ease forwards;*/
+}

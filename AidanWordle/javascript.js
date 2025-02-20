@@ -52,6 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(e.key == "Enter"){
             pressed()
+            flipBox.style.animation = 'none';
+            flipBox.offsetHeight;
+            flipBox.style.animation = 'flipBox .5s forwards';
+
         }
     });
 
@@ -63,13 +67,15 @@ document.addEventListener("DOMContentLoaded", () => {
         guessWord = textBox.value; 
         guessWord = guessWord.toUpperCase();
 
-        if(guessWord.length > 5 || guessWord.length<5){
+        if(guessWord.length > 5 || guessWord.length<0){
             alert("You must enter a 5 letter word");
             shakeBlocks(rowCount+1);
+
             return;
         }
         else{
             let letters = guessWord.split("")
+            flipRows(rowCount+1)
             guess(guessWord, letters);
             textBox.value = "";
             guessWord = "";
@@ -113,6 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const flasbox = document.querySelector("#flashBox");
 
+        const flipBox = document.querySelector("#flipBox");
+
         function gameOver(){
             flashBox.style.animation = 'none';  // Reset the animation
             flashBox.offsetHeight;  // Trigger reflow to apply the reset
@@ -133,8 +141,50 @@ document.addEventListener("DOMContentLoaded", () => {
         const row5Blocks = document.querySelectorAll("#row5 div");
         const row6Blocks = document.querySelectorAll("#row6 div");
 
+
+        function flipRows(row){
+            switch(row){
+                case 1:
+                row1Blocks.forEach(block => block.classList.add("flip"));
+                setTimeout(() => {
+                row1Blocks.forEach(block => block.classList.remove("flip"));
+                }, 500);
+                break;
+            case 2:
+                row2Blocks.forEach(block => block.classList.add("flip"));
+                setTimeout(() => {
+                row2Blocks.forEach(block => block.classList.remove("flip"));
+                }, 500);
+                break;
+            case 3:
+                row3Blocks.forEach(block => block.classList.add("flip"));
+                setTimeout(() => {
+                row3Blocks.forEach(block => block.classList.remove("flip"));
+                }, 500);
+                break;
+            case 4:
+                row4Blocks.forEach(block => block.classList.add("flip"));
+                setTimeout(() => {
+                row4Blocks.forEach(block => block.classList.remove("flip"));
+                }, 500);
+                break;
+            case 5:
+                row5Blocks.forEach(block => block.classList.add("flip"));
+                setTimeout(() => {
+                row5Blocks.forEach(block => block.classList.remove("flip"));
+                }, 500);
+                break;
+            case 6:
+                row6Blocks.forEach(block => block.classList.add("flip"));
+                setTimeout(() => {
+                row6Blocks.forEach(block => block.classList.remove("flip"));
+                }, 500);
+                break;
+            }
+        }
+
         function shakeBlocks(row){
-      
+        console.log(row);
         switch(row){
             case 1:
                 row1Blocks.forEach(block => block.classList.add("shake"));
