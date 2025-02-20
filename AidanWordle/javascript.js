@@ -85,6 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }  
     }
 
+    //this is alternative branch
+
     function updateKeyboardColor(letter, color){
         let keyElement = document.getElementById(letter.toLowerCase());
         if (keyElement){
