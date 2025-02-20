@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         guessWord = textBox.value; 
         guessWord = guessWord.toUpperCase();
 
-        if(guessWord.length > 5 || guessWord.length<0){
+        if(guessWord.length > 5 || guessWord.length<5){
             alert("You must enter a 5 letter word");
             shakeBlocks(rowCount+1);
 
