@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         guessWord = guessWord.toUpperCase();
 
         if(guessWord.length > 5 || guessWord.length<5){
-            alert("You must enter a 5 letter word");
+            popUp("letters");
             shakeBlocks(rowCount+1);
 
             return;
@@ -117,21 +117,39 @@ document.addEventListener("DOMContentLoaded", () => {
             rowCount++;
         }   
         
-        const flasbox = document.querySelector("#flashBox");
+        const flashBox = document.querySelector("#flashBox");
 
         const flipBox = document.querySelector("#flipBox");
 
         function gameOver(){
+            
+            popUp("lose");
+        }
+
+        function popUp(condition)
+        {
             flashBox.style.animation = 'none';  // Reset the animation
             flashBox.offsetHeight;  // Trigger reflow to apply the reset
 
             flashBox.style.display = 'block';
             flashBox.style.visibility = 'visible'; // Ensure the box is visible
+           
+            if (condition == "lose")
+            {
+                flashBox.style.fontSize = '3rem';
+                flashBox.style.animation = 'showAndFadeOut 10s forwards';
 
-            flashBox.style.animation = 'showAndFadeOut 10s forwards';
+                flashBox.textContent = randomWord;
+            }
 
-            flashBox.textContent = randomWord;
+            if (condition == "letters")
+            {
 
+                flashBox.style.fontSize = '1.5rem';
+                flashBox.style.animation = 'showAndFadeOut 2s forwards';
+
+                flashBox.textContent = "Your answer must be 5 letters";
+            }
         }
 
         const row1Blocks = document.querySelectorAll("#row1 div");
