@@ -124,11 +124,11 @@ body{
     font-family: "Lucida Console", monospace;
 
 }
-
+/*
 .flip{
     animation: flipBox .5s forwards;
 }
-
+*/
 @keyframes flipBox{
     0%{
     transform: rotateX(0);
@@ -148,14 +148,15 @@ body{
     width: 100px;
     height: 100px;
     background-color: black;
+    visibility: hidden;
     /*animation: flipBox .5s ease forwards;*/
 }
 
 
-
+/*
 .bounce{
     animation: bounceBox .5s forwards;
-}
+}*/
 
 @keyframes bounceBox{
     0%{
@@ -174,5 +175,6 @@ body{
     width: 100px;
     height: 100px;
     background-color: pink;
-    animation: bounceBox .5s ease forwards;
+    visibility: hidden;
+    /*animation: bounceBox .5s ease forwards;*/
 }

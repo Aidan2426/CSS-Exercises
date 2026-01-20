@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let randomChars = randomWord.split("");
 
     let rowCount = 0;
-    let guessWord = "";//keeping the streak alive, new changes
+    let guessWord = "";
 
     const textBox = document.querySelector("#wordInput");
     const addButton = document.querySelector("#addButton");
@@ -30,6 +30,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const characters = document.querySelectorAll("#a, #b, #c, #d, #e, #f, #g, #h, #i, #j, #k, #l, #m, #n, #o, #p, #q, #r, #s, #t, #u, #v, #w, #x, #y, #z");
 
+    characters.forEach(char => {
+        char.addEventListener('click', function(event){
+            if(rowCount >= rows.length) return; // Prevent overflow
+
+            let currentRow = rows[rowCount];
+
+            if (guessWord.length < 5) { // Limit to 5 letters
+                let letter = event.target.textContent.toUpperCase(); // Get clicked letter
+                guessWord += letter;
+                textBox.value = guessWord;
+                currentRow[guessWord.length - 1].textContent = letter;
+
+                // Bounce animation
+                let curBox = currentRow[guessWord.length - 1];
+                curBox.style.animation = 'none';
+                curBox.offsetHeight; // Force reflow
+                curBox.style.animation = 'bounceBox .5s ease forwards';
+            }
+        });
+    });
 
     document.body.addEventListener("keydown", function(e){
 
@@ -41,6 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
             guessWord +=e.key.toUpperCase() 
             textBox.value = guessWord;
             currentRow[guessWord.length-1].textContent = e.key.toUpperCase();
+            curBox = currentRow[guessWord.length-1]
+            curBox.style.animation = 'none'
+            curBox.offsetHeight;
+            curBox.style.animation = 'bounceBox .5s ease forwards';
+    
         }
 
         else if(e.key == "Backspace"){
@@ -54,9 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
             flipBox.style.animation = 'none';
             flipBox.offsetHeight;
             flipBox.style.animation = 'flipBox .5s forwards';
-
+            bounceBox.style.animation = 'none'
+            bounceBox.offsetHeight;
+            bounceBox.style.animation = 'bounceBox .5s ease forwards';
+            guessWord = "";
         }
     });
+
+    
 
     addButton.addEventListener("click", () => {
         pressed();
@@ -93,6 +123,40 @@ document.addEventListener("DOMContentLoaded", () => {
     function guess(guessWord, letters){
         let currentRow = rows[rowCount]
 
+
+        let letterCounts = {}
+
+        for (let char of randomChars){
+            letterCounts[char] = (letterCounts[char] || 0) +1;
+        }
+
+        let matched = new Array(letters.length).fill(false);
+
+        for (let i = 0; i<letters.length; i++){
+            currentRow[i].textContent = letters[i];
+
+            if(letters[i] == randomChars[i]){
+                currentRow[i].style.background = "green";
+                updateKeyboardColor(letters[i], "green");
+                letterCounts[letters[i]]--;
+                matched[i] = true;
+            }
+        }
+        for(let i = 0; i<letters.length; i++){
+            if(!matched[i]){
+                    if(letterCounts[letters[i]]>0){
+                        currentRow[i].style.background = "yellow";
+                        updateKeyboardColor(letters[i], "yellow");
+                        letterCounts[letters[i]]--;
+                    }else{
+                        currentRow[i].style.background = "red";
+                        updateKeyboardColor(letters[i], "red");
+                    }
+            }
+            
+        }
+        rowCount++;
+        /*
             for(let i = 0; i<letters.length; i++)
             {
                 currentRow[i].textContent = letters[i]
@@ -113,11 +177,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }  
             rowCount++;
+            */
         }   
         
         const flashBox = document.querySelector("#flashBox");
 
         const flipBox = document.querySelector("#flipBox");
+
+        const bounceBox = document.querySelector("#bounceBox");
 
         function gameOver(){
             
